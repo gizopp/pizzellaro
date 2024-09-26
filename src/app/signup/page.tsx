@@ -1,6 +1,6 @@
 import styles from "../page.module.scss";
 import Image from "next/image";
-import logoImg from "/public/logo.svg";
+import logoImg from "/public/logoPizzellaro.svg";
 import Link from "next/link";
 import { api } from "@/services/app";
 import { redirect } from "next/navigation";
@@ -14,7 +14,7 @@ export default function Signup() {
     const password = formData.get("password");
 
     if (!name || !email || !password) {
-      console.log("Preencha todos os campos");
+      console.log("Please fill in all fields");
       return;
     }
 
@@ -25,9 +25,10 @@ export default function Signup() {
         password,
       });
 
-      console.log("Usuário cadastrado com sucesso!");
+      console.log("User registered successfully!");
     } catch (err) {
-      console.log("Erro ao cadastrar usuário: " + err);
+      console.log("Error registering user: " + err);
+      return;
     }
 
     redirect("/");
@@ -39,20 +40,20 @@ export default function Signup() {
         <Image src={logoImg} alt="Logo" />
 
         <section className={styles.login}>
-          <h1>Criando sua conta</h1>
+          <h1>Create your account</h1>
           <form action={handleRegister}>
             <input
               type="text"
               required
               name="name"
-              placeholder="João Pizzellaro"
+              placeholder="John Pizzellaro"
               className={styles.input}
             />
             <input
               type="email"
               required
               name="email"
-              placeholder="joao@pizzellaro.com"
+              placeholder="john@pizzellaro.com"
               className={styles.input}
             />
             <input
@@ -62,10 +63,10 @@ export default function Signup() {
               placeholder="********"
               className={styles.input}
             />
-            <button type="submit">Cadastrar</button>
+            <button type="submit">Register</button>
           </form>
           <Link href="/" className={styles.text}>
-            Já possui uma conta? Faça login
+            Already have an account? Log in
           </Link>
         </section>
       </div>
