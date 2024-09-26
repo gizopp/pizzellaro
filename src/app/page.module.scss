@@ -8,13 +8,13 @@
 }
 
 .login {
-  margin-top: 2rem;
-  width: 600px;
+  margin-top: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 16px;
+  gap: 16px;
+  width: 600px;
 
   form {
     color: var(--white);
@@ -41,6 +41,10 @@
 
   form button:hover {
     scale: 1.02;
+  }
+
+  h1 {
+    color: var(--white);
   }
 }
 
