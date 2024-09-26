@@ -2,8 +2,37 @@ import styles from "../page.module.scss";
 import Image from "next/image";
 import logoImg from "/public/logo.svg";
 import Link from "next/link";
+import { api } from "@/services/app";
+import { redirect } from "next/navigation";
 
 export default function Signup() {
+  async function handleRegister(formData: FormData) {
+    "use server";
+
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    if (!name || !email || !password) {
+      console.log("Preencha todos os campos");
+      return;
+    }
+
+    try {
+      await api.post("/users", {
+        name,
+        email,
+        password,
+      });
+
+      console.log("Usuário cadastrado com sucesso!");
+    } catch (err) {
+      console.log("Erro ao cadastrar usuário: " + err);
+    }
+
+    redirect("/");
+  }
+
   return (
     <>
       <div className={styles.containerCenter}>
@@ -11,7 +40,7 @@ export default function Signup() {
 
         <section className={styles.login}>
           <h1>Criando sua conta</h1>
-          <form>
+          <form action={handleRegister}>
             <input
               type="text"
               required
