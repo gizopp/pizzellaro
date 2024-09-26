@@ -20,24 +20,25 @@ export async function middleware(req: NextRequest) {
 
     if (!isTokenValid) {
       return NextResponse.redirect(new URL("/", req.url));
+    }
+
+    return NextResponse.next();
   }
 
-  return NextResponse.next();
-}
+  async function validateToken(token: string) {
+    if (!token) return false;
 
-async function validateToken(token: string) {
-  if (!token) return false;
+    try {
+      await api.get("/userdetails", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-  try {
-    await api.get("/userdetails", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    return true;
-  } catch (err) {
-    console.log(err);
-    return false;
+      return true;
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
   }
 }
