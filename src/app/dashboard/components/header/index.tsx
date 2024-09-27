@@ -31,7 +31,7 @@ export default function Header() {
         </Link>
         <nav>
           <Link href="dashboard/categories">Categories</Link>
-          <Link href="dashboard/products">Menu</Link>
+          <Link href="dashboard/menu">Menu</Link>
           <form action={handleLogout}>
             <button>
               <LogOutIcon size={24} color="#fff" />
