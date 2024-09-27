@@ -12,6 +12,7 @@ export default function Categories() {
           name="name"
           placeholder="Category Name, example: Pizzas"
           required
+          style={{ marginBottom: "1rem" }}
         />
         <Button>Register</Button>
       </form>
