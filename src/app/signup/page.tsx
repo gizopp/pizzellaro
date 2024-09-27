@@ -5,6 +5,7 @@ import Link from "next/link";
 import { api } from "@/services/app";
 import { redirect } from "next/navigation";
 import Input from "../dashboard/components/input";
+import Button from "../dashboard/components/button";
 
 export default function Signup() {
   async function handleRegister(formData: FormData) {
@@ -61,7 +62,7 @@ export default function Signup() {
               name="password"
               placeholder="********"
             />
-            <button type="submit">Register</button>
+            <Button type="submit">Register</Button>
           </form>
           <Link href="/" className={styles.text}>
             Already have an account? Log in

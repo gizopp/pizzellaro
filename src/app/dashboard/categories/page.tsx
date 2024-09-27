@@ -1,3 +1,4 @@
+import Button from "../components/button";
 import Input from "../components/input";
 import styles from "./page.module.scss";
 
@@ -12,7 +13,7 @@ export default function Categories() {
           placeholder="Category Name, example: Pizzas"
           required
         />
-        <button>Register</button>
+        <Button>Register</Button>
       </form>
     </main>
   );
