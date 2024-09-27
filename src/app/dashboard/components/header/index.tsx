@@ -6,13 +6,15 @@ import styles from "./styles.module.scss";
 import logoImg from "/public/logoPizzellaro.svg";
 import { LogOutIcon } from "lucide-react";
 import { deleteCookie } from "cookies-next";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
-  const handleLogout = () => {
+  const router = useRouter();
+
+  async function handleLogout() {
     deleteCookie("session", { path: "/" });
     router.replace("/");
-  };
+  }
 
   return (
     <header className={styles.headerContainer}>
