@@ -1,3 +1,4 @@
+import Input from "../components/input";
 import styles from "./page.module.scss";
 
 export default function Categories() {
@@ -5,12 +6,11 @@ export default function Categories() {
     <main className={styles.container}>
       <h1>New Category</h1>
       <form className={styles.form}>
-        <input
+        <Input
           type="text"
           name="name"
           placeholder="Category Name, example: Pizzas"
           required
-          className={styles.input}
         />
         <button>Register</button>
       </form>
