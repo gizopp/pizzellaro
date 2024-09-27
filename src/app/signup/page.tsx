@@ -4,6 +4,7 @@ import logoImg from "/public/logoPizzellaro.svg";
 import Link from "next/link";
 import { api } from "@/services/app";
 import { redirect } from "next/navigation";
+import Input from "../dashboard/components/input";
 
 export default function Signup() {
   async function handleRegister(formData: FormData) {
@@ -42,26 +43,23 @@ export default function Signup() {
         <section className={styles.login}>
           <h1>Create your account</h1>
           <form action={handleRegister}>
-            <input
+            <Input
               type="text"
               required
               name="name"
               placeholder="John Pizzellaro"
-              className={styles.input}
             />
-            <input
+            <Input
               type="email"
               required
               name="email"
               placeholder="john@pizzellaro.com"
-              className={styles.input}
             />
-            <input
+            <Input
               type="password"
               required
               name="password"
               placeholder="********"
-              className={styles.input}
             />
             <button type="submit">Register</button>
           </form>
