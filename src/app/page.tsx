@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { api } from "@/services/app";
 import { cookies } from "next/headers";
 import Input from "./dashboard/components/input";
+import Button from "./dashboard/components/button";
 
 export default async function Page() {
   async function handleLogin(formData: FormData) {
@@ -64,7 +65,7 @@ export default async function Page() {
               name="password"
               placeholder="********"
             />
-            <button type="submit">Login</button>
+            <Button type="submit">Login</Button>
           </form>
           <Link href="/signup" className={styles.text}>
             Don't have an account? Sign up
