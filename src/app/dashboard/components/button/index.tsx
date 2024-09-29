@@ -1,18 +1,18 @@
+"use client";
 import React, { ButtonHTMLAttributes } from "react";
 import styles from "./styles.module.scss";
+import { useFormStatus } from "react-dom";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary";
+  name: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  variant = "primary",
-  ...props
-}) => {
+const Button: React.FC<ButtonProps> = ({ name }) => {
+  const { pending } = useFormStatus();
+
   return (
-    <button className={`${styles.button} ${styles[variant]}`} {...props}>
-      {children}
+    <button className={styles.button} type="submit" disabled={pending}>
+      {pending ? "..." : name}
     </button>
   );
 };
