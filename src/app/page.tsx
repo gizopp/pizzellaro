@@ -65,7 +65,7 @@ export default async function Page() {
               name="password"
               placeholder="********"
             />
-            <Button type="submit">Login</Button>
+            <Button name="Login" />
           </form>
           <Link href="/signup" className={styles.text}>
             Don't have an account? Sign up
