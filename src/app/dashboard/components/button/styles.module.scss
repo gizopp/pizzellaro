@@ -8,18 +8,10 @@
   justify-content: center;
   transition: ease-in-out 0.5s;
   cursor: pointer;
+  background-color: var(--red-900);
+  color: var(--white);
 
   &:hover {
     scale: 1.02;
-  }
-
-  &.primary {
-    background-color: var(--red-900);
-    color: var(--white);
-  }
-
-  &.secondary {
-    background-color: var(--gray-100);
-    color: var(--dark-900);
   }
 }
