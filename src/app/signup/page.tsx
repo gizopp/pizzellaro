@@ -62,7 +62,7 @@ export default function Signup() {
               name="password"
               placeholder="********"
             />
-            <Button type="submit">Register</Button>
+            <Button name="Register"/>
           </form>
           <Link href="/" className={styles.text}>
             Already have an account? Log in
