@@ -1,4 +1,4 @@
-import { api } from "../app";
+import { api } from "../../../services/app";
 import { getCoookieClient } from "@/lib/cookieClient";
 
 export const CategoryCreate = async (name: string) => {

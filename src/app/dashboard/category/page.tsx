@@ -4,7 +4,7 @@ import { Toaster, toast } from "react-hot-toast";
 import Button from "../components/button";
 import Input from "../components/input";
 import styles from "./page.module.scss";
-import { CategoryCreate } from "@/services/category/CategoryCreate";
+import { CategoryCreate } from "@/app/api/categories/CategoryCreate";
 
 export default function Categories() {
   const categoryForm = useRef<HTMLFormElement>(null);
