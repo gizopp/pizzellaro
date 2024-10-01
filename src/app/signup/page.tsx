@@ -4,8 +4,8 @@ import logoImg from "/public/logoPizzellaro.svg";
 import Link from "next/link";
 import { api } from "@/services/app";
 import { redirect } from "next/navigation";
-import Input from "../dashboard/components/input";
-import Button from "../dashboard/components/button";
+import Input from "../components/input";
+import Button from "../components/button";
 
 export default function Signup() {
   async function handleRegister(formData: FormData) {
@@ -62,7 +62,7 @@ export default function Signup() {
               name="password"
               placeholder="********"
             />
-            <Button name="Register"/>
+            <Button name="Register" />
           </form>
           <Link href="/" className={styles.text}>
             Already have an account? Log in

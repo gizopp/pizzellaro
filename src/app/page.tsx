@@ -5,8 +5,8 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { api } from "@/services/app";
 import { cookies } from "next/headers";
-import Input from "./dashboard/components/input";
-import Button from "./dashboard/components/button";
+import Input from "./components/input";
+import Button from "./components/button";
 
 export default async function Page() {
   async function handleLogin(formData: FormData) {
