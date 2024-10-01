@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from "react";
 import Image from "next/image";
-import { UploadCloud } from "lucide-react";
+import { Plus } from "lucide-react";
 import toast from "react-hot-toast";
 import styles from "./styles.module.scss";
 
@@ -37,8 +37,9 @@ export function InputImage({ onImageChange, label }: InputImageProps) {
         />
         {!previewImage && (
           <div className={styles.placeholder}>
-            <UploadCloud size={40} color="#fff" />
-            <span>Choose an image</span>
+            <span>
+              <Plus size={80} color="#fff" />
+            </span>
           </div>
         )}
         {previewImage && (
@@ -46,9 +47,8 @@ export function InputImage({ onImageChange, label }: InputImageProps) {
             alt="Product Preview"
             src={previewImage}
             layout="fill"
-            objectFit="contain"
+            objectFit="cover"
             className={styles.previewImage}
-            fill={true}
           />
         )}
       </div>
