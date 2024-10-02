@@ -2,10 +2,10 @@
 import styles from "./styles.module.scss";
 import { useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { InputImage } from "@/app/components/inputImage";
-import Input from "@/app/components/input";
-import InputSelect from "@/app/components/inputSelect";
-import InputTextArea from "@/app/components/inputTextArea";
+import { InputImage } from "@/app/components/input/inputImage";
+import Input from "@/app/components/input/input";
+import InputSelect from "@/app/components/input/inputSelect";
+import InputTextArea from "@/app/components/input/inputTextArea";
 import Button from "@/app/components/button";
 import { Category } from "@/app/types/category";
 import { api } from "@/services/app";

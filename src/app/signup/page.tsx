@@ -4,7 +4,7 @@ import logoImg from "/public/logoPizzellaro.svg";
 import Link from "next/link";
 import { api } from "@/services/app";
 import { redirect } from "next/navigation";
-import Input from "../components/input";
+import Input from "../components/input/input";
 import Button from "../components/button";
 
 export default function Signup() {

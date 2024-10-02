@@ -5,7 +5,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { api } from "@/services/app";
 import { cookies } from "next/headers";
-import Input from "./components/input";
+import Input from "./components/input/input";
 import Button from "./components/button";
 
 export default async function Page() {
