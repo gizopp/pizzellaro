@@ -1,27 +1,36 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import Image from "next/image";
-import { Plus } from "lucide-react";
+import { Plus, Upload } from "lucide-react";
 import toast from "react-hot-toast";
 import styles from "./styles.module.scss";
 
 interface InputImageProps {
-  onImageChange: (image: File) => void;
+  onImageChange: (image: File | null) => void;
   label?: string;
 }
 
 export function InputImage({ onImageChange, label }: InputImageProps) {
-  const [previewImage, setPreviewImage] = useState("");
+  const [previewImage, setPreviewImage] = useState<string | null>(null);
 
   const handleChangeFile = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      const image = e.target.files[0];
+    const image = e.target.files?.[0];
+    if (image) {
       if (image.type !== "image/png" && image.type !== "image/jpeg") {
         toast.error("Only PNG and JPEG images are allowed");
         return;
       }
-      onImageChange(image);
+
+      if (previewImage) {
+        URL.revokeObjectURL(previewImage);
+      }
+
       setPreviewImage(URL.createObjectURL(image));
+      onImageChange(image);
     }
+  };
+
+  const handleReplaceClick = () => {
+    document.getElementById("imageInput")?.click();
   };
 
   return (
@@ -29,6 +38,7 @@ export function InputImage({ onImageChange, label }: InputImageProps) {
       {label && <label className={styles.label}>{label}</label>}
       <div className={styles.inputWrapper}>
         <input
+          id="imageInput"
           type="file"
           accept="image/png, image/jpeg"
           required
@@ -37,19 +47,27 @@ export function InputImage({ onImageChange, label }: InputImageProps) {
         />
         {!previewImage && (
           <div className={styles.placeholder}>
-            <span>
-              <Plus size={80} color="#fff" />
-            </span>
+            <Plus size={80} color="#fff" />
           </div>
         )}
         {previewImage && (
-          <Image
-            alt="Product Preview"
-            src={previewImage}
-            layout="fill"
-            objectFit="cover"
-            className={styles.previewImage}
-          />
+          <>
+            <Image
+              alt="Product Preview"
+              src={previewImage}
+              layout="fill"
+              objectFit="cover"
+              className={styles.previewImage}
+            />
+            <div className={styles.imageActions}>
+              <button
+                onClick={handleReplaceClick}
+                className={styles.iconButton}
+              >
+                <Upload size={20} />
+              </button>
+            </div>
+          </>
         )}
       </div>
     </div>
