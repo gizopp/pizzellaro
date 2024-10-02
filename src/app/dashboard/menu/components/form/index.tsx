@@ -6,11 +6,12 @@ import { Toaster } from "react-hot-toast";
 import { InputImage } from "@/app/components/inputImage";
 import Input from "@/app/components/input";
 import InputSelect from "@/app/components/inputSelect";
+import InputTextArea from "@/app/components/inputTextArea";
 
 export function Form() {
-  const [image, setImage] = useState<File>();
+  const [image, setImage] = useState<File | null>(null);
 
-  const handleImageChange = (image: File) => {
+  const handleImageChange = (image: File | null) => {
     setImage(image);
   };
 
@@ -40,8 +41,7 @@ export function Form() {
               placeholder="Product price..."
               required
             />
-            <Input
-              type="text"
+            <InputTextArea
               name="description"
               placeholder="Product description..."
               required
