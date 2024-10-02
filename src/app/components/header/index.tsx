@@ -30,8 +30,8 @@ export default function Header() {
           />
         </Link>
         <nav>
-          <Link href="dashboard/category">Categories</Link>
-          <Link href="dashboard/menu">Menu</Link>
+          <Link href="/dashboard/category">Categories</Link>
+          <Link href="/dashboard/menu">Menu</Link>
           <form action={handleLogout}>
             <button>
               <LogOutIcon size={24} color="#fff" />
