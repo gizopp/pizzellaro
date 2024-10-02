@@ -29,6 +29,18 @@
     outline: none;
     border-color: var(--primary);
   }
+
+  &[data-placeholder="true"] {
+    color: var(--gray-100);
+  }
+
+  option {
+    color: var(--white);
+  }
+
+  option:first-child {
+    color: var(--gray-100);
+  }
 }
 
 .icon {

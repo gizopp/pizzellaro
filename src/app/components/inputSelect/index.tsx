@@ -10,18 +10,29 @@ interface Option {
 interface InputSelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
   options: Option[];
+  placeholder?: string;
 }
 
 const InputSelect: React.FC<InputSelectProps> = ({
   label,
   options,
+  placeholder = "Select an option...",
+  value,
   ...props
 }) => {
   return (
     <div className={styles.inputContainer}>
       {label && <label className={styles.label}>{label}</label>}
       <div className={styles.selectWrapper}>
-        <select className={styles.select} {...props}>
+        <select
+          className={styles.select}
+          {...props}
+          value={value}
+          data-placeholder={value === ""}
+        >
+          <option value="" disabled>
+            {placeholder}
+          </option>
           {options.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
