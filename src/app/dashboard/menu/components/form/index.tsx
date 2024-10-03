@@ -7,7 +7,7 @@ import Input from "@/app/components/input/input";
 import InputSelect from "@/app/components/input/inputSelect";
 import InputTextArea from "@/app/components/input/inputTextArea";
 import Button from "@/app/components/button";
-import { Category } from "@/app/types/category";
+import { Category } from "@/app/types/category.type";
 import { api } from "@/services/app";
 import { getCoookieClient } from "@/lib/cookieClient";
 import { redirect } from "next/navigation";
