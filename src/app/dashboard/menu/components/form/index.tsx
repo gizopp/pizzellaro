@@ -10,6 +10,7 @@ import Button from "@/app/components/button";
 import { Category } from "@/app/types/category";
 import { api } from "@/services/app";
 import { getCoookieClient } from "@/lib/cookieClient";
+import { redirect } from "next/navigation";
 
 interface FormProps {
   categories: Category[];
@@ -46,6 +47,7 @@ export function Form({ categories }: FormProps) {
     });
 
     toast.success("Product registered successfully");
+    redirect("/dashboard");
   };
 
   const handleImageChange = (image: File | null) => {

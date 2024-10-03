@@ -5,6 +5,7 @@ import Button from "../../components/button";
 import Input from "../../components/input/input";
 import styles from "./page.module.scss";
 import { CategoryCreate } from "@/app/api/categories/CategoryCreate";
+import { redirect } from "next/navigation";
 
 export default function Categories() {
   const categoryForm = useRef<HTMLFormElement>(null);
@@ -13,10 +14,9 @@ export default function Categories() {
     try {
       await CategoryCreate(String(formData.get("name")));
       toast.success("Category registered successfully!");
-      categoryForm.current?.reset();
+      redirect("/dashboard");
     } catch (error) {
       console.error("Error registering category:", error);
-      toast.error("Failed to register category. Please try again.");
     }
   };
 
