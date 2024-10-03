@@ -30,7 +30,7 @@ export default function Signup() {
 
       toast.success("User registered successfully!");
     } catch (err) {
-      toast.error("Error registering user: " + err);
+      console.error("Error registering user: " + err);
       return;
     }
 
