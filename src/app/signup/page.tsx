@@ -6,6 +6,7 @@ import { api } from "@/services/app";
 import { redirect } from "next/navigation";
 import Input from "../components/input/input";
 import Button from "../components/button";
+import toast from "react-hot-toast";
 
 export default function Signup() {
   async function handleRegister(formData: FormData) {
@@ -16,7 +17,7 @@ export default function Signup() {
     const password = formData.get("password");
 
     if (!name || !email || !password) {
-      console.log("Please fill in all fields");
+      toast.error("Please fill in all fields");
       return;
     }
 
@@ -27,9 +28,9 @@ export default function Signup() {
         password,
       });
 
-      console.log("User registered successfully!");
+      toast.success("User registered successfully!");
     } catch (err) {
-      console.log("Error registering user: " + err);
+      toast.error("Error registering user: " + err);
       return;
     }
 

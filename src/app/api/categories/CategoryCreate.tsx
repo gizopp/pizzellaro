@@ -1,9 +1,10 @@
+import toast from "react-hot-toast";
 import { api } from "../../../services/app";
 import { getCoookieClient } from "@/lib/cookieClient";
 
 export const CategoryCreate = async (name: string) => {
   if (!name) {
-    console.log("Name is required.");
+    toast.error("Name is required.");
     return;
   }
 
@@ -18,7 +19,7 @@ export const CategoryCreate = async (name: string) => {
       return true;
     }
   } catch (err) {
-    console.log("Error registering category: " + err);
+    toast.error("Error registering category: " + err);
     return;
   }
 

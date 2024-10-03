@@ -28,7 +28,7 @@ export default async function Page() {
       });
 
       if (!response.data.token) {
-        console.log("Invalid credentials");
+        toast.error("Invalid credentials!");
         return;
       }
 
@@ -38,9 +38,9 @@ export default async function Page() {
         httpOnly: false,
         secure: process.env.NODE_ENV === "production",
       });
-      console.log("User registered successfully!");
+      toast.success("User registered successfully!");
     } catch (err) {
-      console.log("Error registering user: " + err);
+      toast.error("Error registering user: " + err);
       return;
     }
 
