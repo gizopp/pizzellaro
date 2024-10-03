@@ -4,7 +4,7 @@ import { toast } from "react-hot-toast";
 import Button from "../../components/button";
 import Input from "../../components/input/input";
 import styles from "./page.module.scss";
-import { CategoryCreate } from "@/app/api/categories/CategoryCreate";
+import { CategoryCreate } from "@/app/api/category/CategoryCreate";
 import { redirect } from "next/navigation";
 
 export default function Categories() {
