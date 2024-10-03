@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import Button from "../../components/button";
 import Input from "../../components/input/input";
 import styles from "./page.module.scss";
@@ -22,7 +22,6 @@ export default function Categories() {
 
   return (
     <main className={styles.container}>
-      <Toaster position="top-center" />
       <h1>New Category</h1>
       <form
         className={styles.form}

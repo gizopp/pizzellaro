@@ -1,7 +1,7 @@
 "use client";
 import styles from "./styles.module.scss";
-import { useRef, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { useState } from "react";
+import toast from "react-hot-toast";
 import { InputImage } from "@/app/components/input/inputImage";
 import Input from "@/app/components/input/input";
 import InputSelect from "@/app/components/input/inputSelect";
@@ -9,9 +9,7 @@ import InputTextArea from "@/app/components/input/inputTextArea";
 import Button from "@/app/components/button";
 import { Category } from "@/app/types/category";
 import { api } from "@/services/app";
-import { headers } from "next/headers";
 import { getCoookieClient } from "@/lib/cookieClient";
-import { redirect } from "next/navigation";
 
 interface FormProps {
   categories: Category[];
@@ -67,7 +65,6 @@ export function Form({ categories }: FormProps) {
 
   return (
     <main className={styles.container}>
-      <Toaster />
       <h1>New Product</h1>
       <form className={styles.form} action={handleRegisterProduct}>
         <label className={styles.labelImage}>

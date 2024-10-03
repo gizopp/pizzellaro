@@ -7,6 +7,7 @@ import { api } from "@/services/app";
 import { cookies } from "next/headers";
 import Input from "./components/input/input";
 import Button from "./components/button";
+import toast from "react-hot-toast";
 
 export default async function Page() {
   async function handleLogin(formData: FormData) {
@@ -16,7 +17,7 @@ export default async function Page() {
     const password = formData.get("password");
 
     if (!email || !password) {
-      console.log("Please fill in all fields");
+      toast.error("Please fill in all fields");
       return;
     }
 
