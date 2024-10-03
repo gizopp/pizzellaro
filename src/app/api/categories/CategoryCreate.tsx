@@ -19,7 +19,7 @@ export const CategoryCreate = async (name: string) => {
       return true;
     }
   } catch (err) {
-    toast.error("Error registering category: " + err);
+    console.error("Error registering category: " + err);
     return;
   }
 
