@@ -17,7 +17,7 @@ export default async function Page() {
     const password = formData.get("password");
 
     if (!email || !password) {
-      toast.error("Please fill in all fields");
+      console.error("Please fill in all fields");
       return;
     }
 
@@ -27,8 +27,10 @@ export default async function Page() {
         password,
       });
 
+      console.log(response.data);
+
       if (!response.data.token) {
-        toast.error("Invalid credentials!");
+        console.error("Invalid credentials!");
         return;
       }
 
@@ -38,7 +40,6 @@ export default async function Page() {
         httpOnly: false,
         secure: process.env.NODE_ENV === "production",
       });
-      toast.success("User registered successfully!");
     } catch (err) {
       console.error("Error registering user: " + err);
       return;
