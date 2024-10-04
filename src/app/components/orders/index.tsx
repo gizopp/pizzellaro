@@ -1,12 +1,22 @@
+"use client";
+
 import { RefreshCw } from "lucide-react";
 import styles from "./styles.module.scss";
 import { OrderModal } from "../modal";
+import { OrderContext } from "@/providers/order";
+import { use } from "react";
 
 interface Orders {
   orders: Order[];
 }
 
 export function Orders({ orders }: Orders) {
+  const { isOpen, onRequestOpen } = use(OrderContext);
+
+  const handleOrderDetails = (order_id: string) => {
+    onRequestOpen(order_id);
+  };
+
   return (
     <>
       <main className={styles.container}>
@@ -18,14 +28,18 @@ export function Orders({ orders }: Orders) {
         </section>
         <section className={styles.listOrders}>
           {orders.map((order) => (
-            <button key={order.id} className={styles.orderItem}>
+            <button
+              key={order.id}
+              className={styles.orderItem}
+              onClick={() => handleOrderDetails(order.id)}
+            >
               <div className={styles.tag}></div>
               <span>Table {order.table}</span>
             </button>
           ))}
         </section>
       </main>
-      <OrderModal order={orders[0]} />
+      {isOpen && <OrderModal order={orders[0]} />}
     </>
   );
 }
