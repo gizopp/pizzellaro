@@ -13,8 +13,8 @@ interface Orders {
 export function Orders({ orders }: Orders) {
   const { isOpen, onRequestOpen } = use(OrderContext);
 
-  const handleOrderDetails = (order_id: string) => {
-    onRequestOpen(order_id);
+  const handleOrderDetails = async (order_id: string) => {
+    await onRequestOpen(order_id);
   };
 
   return (
@@ -39,7 +39,7 @@ export function Orders({ orders }: Orders) {
           ))}
         </section>
       </main>
-      {isOpen && <OrderModal order={orders[0]} />}
+      {isOpen && <OrderModal />}
     </>
   );
 }
