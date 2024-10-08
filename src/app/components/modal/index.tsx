@@ -5,12 +5,8 @@ import Button from "../button";
 import { use } from "react";
 import { OrderContext } from "@/providers/order";
 
-interface ModalProps {
-  order: Order;
-}
-
-export const OrderModal = ({ order }: ModalProps) => {
-  const { onRequestClose } = use(OrderContext);
+export const OrderModal = () => {
+  const { onRequestClose, order } = use(OrderContext);
 
   return (
     <dialog className={styles.dialogContainer}>
@@ -25,14 +21,28 @@ export const OrderModal = ({ order }: ModalProps) => {
         </button>
         <article className={styles.detailsContainer}>
           <h2>Order Details</h2>
-          <span className={styles.table}>
-            Table: <b>{order.table}</b>
-          </span>
-          <section className={styles.itemsContainer}>
-            <span>
-              1UN - Pizza
-              {/* {orderItem.quantity}UN - {orderItem.description} */}
+          <div className={styles.orderInfo}>
+            <span className={styles.table}>
+              Table: <b>{order[0].order.table}</b>
             </span>
+            {order[0].order.name && (
+              <span className={styles.name}>
+                Name: <b>{order[0].order.name}</b>
+              </span>
+            )}
+          </div>
+          <section className={styles.itemsContainer}>
+            <h3>Items</h3>
+            <ul>
+              {order.map((item) => (
+                <li key={item.id} className={styles.itemRow}>
+                  <span className={styles.itemAmount}>{item.amount}</span>
+                  <span className={styles.itemDescription}>
+                    {item.product.description}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </section>
           <Button name="Finish" />
         </article>
