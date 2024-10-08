@@ -2,7 +2,7 @@
 
 import { RefreshCw } from "lucide-react";
 import styles from "./styles.module.scss";
-import { OrderModal } from "../modal";
+import { OrderModal } from "./orderModal";
 import { OrderContext } from "@/providers/order";
 import { use } from "react";
 
