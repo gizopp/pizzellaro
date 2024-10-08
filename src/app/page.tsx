@@ -27,8 +27,6 @@ export default async function Page() {
         password,
       });
 
-      console.log(response.data);
-
       if (!response.data.token) {
         console.error("Invalid credentials!");
         return;

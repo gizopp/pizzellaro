@@ -34,8 +34,6 @@ export function OrderProvider({ children }: OrderProviderProps) {
       },
     });
 
-    console.log(response.data);
-
     setOrder(response.data);
     setIsOpen(true);
   }
