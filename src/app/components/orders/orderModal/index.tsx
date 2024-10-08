@@ -1,7 +1,7 @@
 import { X } from "lucide-react";
 import styles from "./styles.module.scss";
 import { Order } from "@/app/types/order.type";
-import Button from "../button";
+import Button from "../../button";
 import { use } from "react";
 import { OrderContext } from "@/providers/order";
 
@@ -32,7 +32,7 @@ export const OrderModal = () => {
             )}
           </div>
           <section className={styles.itemsContainer}>
-            <h3>Items</h3>
+            <h4>Items</h4>
             <ul>
               {order.map((item) => (
                 <li key={item.id} className={styles.itemRow}>
